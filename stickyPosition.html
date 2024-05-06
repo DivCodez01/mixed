@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky your position</title>
+  <style>
+    div {
+      height: 3000px;
+      display: flex;
+      width: 100%;
+      background-color: black;
+      align-items: end;
+      align-items: center;
+    }
+
+    div>span {
+      min-width: 200px;
+
+
+      &:nth-of-type(1) {
+        background-color: red;
+        min-height: 100px;
+        width: 100%;
+      }
+
+      &:nth-of-type(2) {
+        background-color: green;
+        min-height: 200px;
+        width: 100%;
+        order: 3;
+      }
+
+      &:nth-of-type(3) {
+        background-color: yellow;
+        min-height: 300px;
+        width: 100%;
+        position: sticky;
+        top: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+  </div>
+</body>
+
+</html>
