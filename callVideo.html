@@ -176,6 +176,13 @@
             }
             return `${mins} : ${secs}`
         }
+
+        play.addEventListener("click", () => {
+            if (play.innerHTML == "PLAY") {
+                video.play();
+            }
+        })
+
     </script>
 </body>
 
