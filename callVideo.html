@@ -49,37 +49,69 @@
             }
         }
 
-        video {
-            width: 40%;
-            height: 70vh;
+        .container {
+            width: 50%;
+            height: 60vh;
             border: 2px solid white;
             border-radius: 10px;
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
         }
 
         video.displayed {
             /* display: none; */
         }
+
+        input[type="range"] {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: black;
+            -webkit-appearance: none;
+            margin: 0 10px 0 10px;
+        }
+
+        input[type="range"]
     </style>
 </head>
 
 <body>
-    <video src="" class="displayed"></video>
+    <div class="container">
+        <video src="WhatsAppVideo2023.mp4"></video>
+        <input type="range">
+        <div>
+            <label>start</label>
+            <label>end</label>
+        </div>
+    </div>
     <button class="show">Show video</button>
     <script>
         const button = document.querySelector("button");
         const video = document.querySelector("video");
+        let mySrc = "WhatsAppVideo2023.mp4";
+
         button.addEventListener("click", () => {
-            let mySrc = "WhatsAppVideo2023.mp4";
-            // const aHref = document.createElement("a");
-            // aHref.href = myHref;
-            // aHref.play();
-            // aHref.setAttribute("controls", "")
-            // console.log(aHref)
-            video.src = mySrc
-            video.setAttribute("controls", "")
+            const aHref = document.createElement("a");
+            aHref.href = myHref;
+            aHref.play();
+            aHref.setAttribute("controls", "")
+            console.log(aHref)
+            video.src = mySrc;
         });
 
-
+        video.addEventListener("mouseover", function (ev) {
+            ev.preventDefault();
+            video.src = mySrc;
+            setTimeout(() => {
+                console.log(video.duration);
+            }, 100);
+        })
     </script>
 </body>
 
