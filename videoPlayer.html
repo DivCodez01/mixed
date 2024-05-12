@@ -6,20 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
         body {
             background: linear-gradient(40deg, transparent, white, black, black, black, black, white, transparent);
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         video {
-            width: 80%;
+            width: 40%;
             height: 70vh;
+            border: 2px solid white;
+            border-radius: 10px;
         }
+
+        .show {}
     </style>
 </head>
 
 <body>
     <video src="WhatsAppVideo2023.mp4"></video>
-    <button>Show video</button>
+    <button class="show">Show video</button>
+    <script>
+
+    </script>
 </body>
 
 </html>
