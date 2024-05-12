@@ -93,14 +93,17 @@
             -webkit-appearance: none;
             vertical-align: top;
             visibility: hidden;
+            overflow: hidden;
+            cursor: pointer;
         }
 
         .myRange::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 5px;
-            height: 10px;
-            background: linear-gradient(90deg, transparent, white, white, black, white, white, transparent);
+            width: 2px;
+            height: 5px;
+            background: green;
             /* height: 100%; */
+            box-shadow: -400px 0 0 400px#d5eebb;
         }
 
         .time-container {
