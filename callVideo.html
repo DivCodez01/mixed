@@ -48,20 +48,38 @@
                 transform: translateY(-5px);
             }
         }
+
+        video {
+            width: 40%;
+            height: 70vh;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+
+        video.displayed {
+            /* display: none; */
+        }
     </style>
 </head>
 
 <body>
+    <video src="" class="displayed"></video>
     <button class="show">Show video</button>
     <script>
         const button = document.querySelector("button");
+        const video = document.querySelector("video");
         button.addEventListener("click", () => {
-            let myHref = "videoPlayer.html";
-            const aHref = document.createElement("a");
-            aHref.href = myHref;
+            let mySrc = "WhatsAppVideo2023.mp4";
+            // const aHref = document.createElement("a");
+            // aHref.href = myHref;
             // aHref.play();
-            console.log(aHref)
-        })
+            // aHref.setAttribute("controls", "")
+            // console.log(aHref)
+            video.src = mySrc
+            video.setAttribute("controls", "")
+        });
+
+
     </script>
 </body>
 
