@@ -132,7 +132,7 @@
         <button class="play">PLAY</button>
         <video src="WhatsAppVideo2023.mp4"></video>
         <div class="sub-container">
-            <input type="range">
+            <input type="range" class="myRange">
             <div class="time-container">
                 <label>start</label>
                 <label>end</label>
@@ -146,6 +146,7 @@
         const labelOne = document.querySelector("label:nth-child(1)");
         const labelTwo = document.querySelector("label:nth-child(2)");
         const play = document.querySelector(".play");
+        const myRange = document.querySelector(".myRange");
         let mySrc = "WhatsAppVideo2023.mp4";
 
         button.addEventListener("click", () => {
@@ -160,6 +161,7 @@
         video.addEventListener("mouseover", function (ev) {
             ev.preventDefault();
             setTimeout(() => {
+                myRange.max = video.duration;
                 labelTwo.innerHTML = myTime(video.duration)
                 console.log(video.duration);
             }, 100);
@@ -188,8 +190,13 @@
         })
 
         setInterval(() => {
-            labelOne.innerHTML = myTime(video.currentTime)
-        }, 500);
+            myRange.value = video.currentTime
+            labelOne.innerHTML = myTime(video.currentTime);
+            if (video.currentTime == video.duration) {
+                console.log("good")
+                video.play();
+            }
+        }, 300);
     </script>
 </body>
 
