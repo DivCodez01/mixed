@@ -179,10 +179,17 @@
 
         play.addEventListener("click", () => {
             if (play.innerHTML == "PLAY") {
+                play.innerHTML = "PAUSE"
                 video.play();
+            } else {
+                play.innerHTML = "PLAY"
+                video.pause();
             }
         })
 
+        setInterval(() => {
+            labelOne.innerHTML = myTime(video.currentTime)
+        }, 500);
     </script>
 </body>
 
