@@ -64,10 +64,13 @@
             -webkit-appearance: none;
             position: absolute;
             top: 10px;
-            width: 60%;
+            width: 50%;
             height: 10px;
             border: none;
             border-radius: 2px;
+            box-shadow: 2px 2px 5px black;
+            z-index: 1;
+            overflow: hidden;
         }
 
         #volume::-webkit-slider-thumb {
@@ -75,6 +78,7 @@
             width: 3px;
             height: 10px;
             background: black;
+            box-shadow: -400px 0 0 400px rgb(65, 65, 75);
         }
 
         video {
@@ -150,9 +154,9 @@
 
 <body>
     <div class="container">
-        <input type="range" id="volume">
+        <input type="range" id="volume" value="2">
         <button class="play">PLAY</button>
-        <video src="Learn CSS Position In 9 Minutes.mp4"></video>
+        <video></video>
         <div class="sub-container">
             <input type="range" class="myRange">
             <div class="time-container">
@@ -163,14 +167,16 @@
     </div>
     <button class="show">Show video</button>
     <script>
+
         const button = document.querySelector(".show");
         const video = document.querySelector("video");
         const labelOne = document.querySelector("label:nth-child(1)");
         const labelTwo = document.querySelector("label:nth-child(2)");
         const play = document.querySelector(".play");
         const myRange = document.querySelector(".myRange");
-        const volume = document.querySelector("#volume")
-        let mySrc = "Learn CSS Position In 9 Minutes.mp4";
+        const volume = document.querySelector("#volume");
+        let mySrc = "WhatsAppVideo2023.mp4";
+        video.src = "WhatsAppVideo2023.mp4";
 
         button.addEventListener("click", () => {
             const aHref = document.createElement("a");
@@ -238,6 +244,16 @@
             // video.currentTime = pepe;
             // console.log(ev.max.offsetX)
         })
+
+        function changeVolume() {
+            video.volume = volume.value / 100;
+        }
+
+        volume.addEventListener("change", () => {
+            changeVolume();
+        })
+
+        document.addEventListener("DOMContentLoaded", changeVolume);
     </script>
 </body>
 
