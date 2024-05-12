@@ -197,6 +197,10 @@
                 video.play();
             }
         }, 300);
+
+        myRange.addEventListener("change", () => {
+            video.currentTime = myRange.value;
+        })
     </script>
 </body>
 
