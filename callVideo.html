@@ -61,12 +61,20 @@
         }
 
         #volume {
-            /* -webkit-appearance: none */
+            -webkit-appearance: none;
             position: absolute;
             top: 10px;
             width: 60%;
             height: 10px;
             border: none;
+            border-radius: 2px;
+        }
+
+        #volume::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 3px;
+            height: 10px;
+            background: black;
         }
 
         video {
@@ -144,7 +152,7 @@
     <div class="container">
         <input type="range" id="volume">
         <button class="play">PLAY</button>
-        <video src="WhatsAppVideo2023.mp4"></video>
+        <video src="Learn CSS Position In 9 Minutes.mp4"></video>
         <div class="sub-container">
             <input type="range" class="myRange">
             <div class="time-container">
@@ -161,7 +169,8 @@
         const labelTwo = document.querySelector("label:nth-child(2)");
         const play = document.querySelector(".play");
         const myRange = document.querySelector(".myRange");
-        let mySrc = "WhatsAppVideo2023.mp4";
+        const volume = document.querySelector("#volume")
+        let mySrc = "Learn CSS Position In 9 Minutes.mp4";
 
         button.addEventListener("click", () => {
             const aHref = document.createElement("a");
@@ -212,8 +221,22 @@
             }
         }, 300);
 
-        myRange.addEventListener("change", () => {
+        myRange.addEventListener("change", changeVideo)
+
+        function changeVideo() {
             video.currentTime = myRange.value;
+        };
+
+        myRange.addEventListener("mouseover", (ev) => {
+            // console.log("ddwdwdwdw");
+            // // myRange.value = video.currentTime;
+            // changeVideo()
+            // let popo = ev.offsetX * 100 / 289;
+            // let pepe = popo * video.duration / 100
+            // console.log(pepe);
+            // myRange.setAttribute("title", `${myTime(pepe)}`)
+            // video.currentTime = pepe;
+            // console.log(ev.max.offsetX)
         })
     </script>
 </body>
