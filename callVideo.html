@@ -57,6 +57,7 @@
             position: relative;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         video {
@@ -82,6 +83,7 @@
             background: black;
             -webkit-appearance: none;
             vertical-align: top;
+            visibility: hidden;
         }
 
         input[type="range"]::-webkit-slider-thumb {
@@ -95,14 +97,36 @@
             display: flex;
             justify-content: space-between;
             font-family: Arial, Helvetica, sans-serif;
-            transform: translateY(-17px);
-            text-shadow: 2px 2px 4px white;
+            transform: translateY(-12px);
+            text-shadow: 2px 2px 3px black;
+            color: white;
+            font-size: .8em;
+            visibility: hidden;
+        }
+
+        span {
+            color: black;
+            position: absolute;
+            background: white;
+            padding: 4px;
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            visibility: hidden;
+            transition: .1s ease;
+        }
+
+        .container:hover span,
+        .container:hover .time-container,
+        .container:hover input[type="range"] {
+            visibility: visible;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <span>PLAY</span>
         <video src="WhatsAppVideo2023.mp4"></video>
         <div class="sub-container">
             <input type="range">
@@ -116,6 +140,9 @@
     <script>
         const button = document.querySelector("button");
         const video = document.querySelector("video");
+        const labelOne = document.querySelector("label:nth-child(1)");
+        const labelTwo = document.querySelector("label:nth-child(2)");
+        const span = document.querySelector("span");
         let mySrc = "WhatsAppVideo2023.mp4";
 
         button.addEventListener("click", () => {
@@ -131,9 +158,23 @@
             ev.preventDefault();
             video.src = mySrc;
             setTimeout(() => {
+                labelOne.innerHTML = "00:00";
+                labelTwo.innerHTML = myTime(video.duration)
                 console.log(video.duration);
             }, 100);
         })
+
+        function myTime(time) {
+            let mins = `${Math.floor(time / 60)}`;
+            if (mins < 10) {
+                mins = `0${mins}`
+            }
+            let secs = `${Math.floor(time % 60)}`;
+            if (secs < 10) {
+                secs = `0${secs}`
+            }
+            return `${mins} : ${secs}`
+        }
     </script>
 </body>
 
