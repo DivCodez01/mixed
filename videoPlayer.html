@@ -39,6 +39,22 @@
             text-shadow: 2px 2px 6px white;
             border-radius: 10px;
         }
+
+        .show:active {
+            animation: showWell .1s linear;
+        }
+
+        @keyframes showWell {
+            50% {
+                background-color: red;
+                transform: translateY(5px);
+            }
+
+            100% {
+                background-color: green;
+                transform: translateY(-5px);
+            }
+        }
     </style>
 </head>
 
