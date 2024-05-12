@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: linear-gradient(40deg, transparent, white, black, black, black, black, white, transparent);
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .show {
+            font-size: 3em;
+            border: none;
+            padding: 11px;
+            background: linear-gradient(160deg, transparent, white, black, black, black, black, white, transparent);
+            border: 2px solid white;
+            color: black;
+            text-shadow: 2px 2px 6px white;
+            border-radius: 10px;
+        }
+
+        .show:active {
+            animation: showWell .1s linear;
+        }
+
+        @keyframes showWell {
+            50% {
+                background-color: red;
+                transform: translateY(5px);
+                color: white;
+            }
+
+            100% {
+                background-color: green;
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="show">Show video</button>
+    <script>
+        const button = document.querySelector("button");
+        button.addEventListener("click", () => {
+            let myHref = "videoPlayer.html";
+            const aHref = document.createElement("a");
+            aHref.href = myHref;
+            // aHref.play();
+            console.log(aHref)
+        })
+    </script>
+</body>
+
+</html>
