@@ -60,7 +60,7 @@
             align-items: center;
         }
 
-        #volume {
+        .volume {
             -webkit-appearance: none;
             position: absolute;
             top: 10px;
@@ -71,9 +71,11 @@
             box-shadow: 2px 2px 5px black;
             z-index: 1;
             overflow: hidden;
+            visibility: hidden;
+            cursor: pointer;
         }
 
-        #volume::-webkit-slider-thumb {
+        .volume::-webkit-slider-thumb {
             -webkit-appearance: none;
             width: 3px;
             height: 10px;
@@ -142,11 +144,13 @@
             transition: .1s ease;
             border: none;
             z-index: 1;
+            cursor: pointer;
         }
 
         .container:hover button,
         .container:hover .time-container,
-        .container:hover input[type="range"] {
+        .container:hover input[type="range"],
+        .container:hover #volume {
             visibility: visible;
         }
     </style>
@@ -154,7 +158,7 @@
 
 <body>
     <div class="container">
-        <input type="range" id="volume" value="2">
+        <input type="range" class="volume">
         <button class="play">PLAY</button>
         <video></video>
         <div class="sub-container">
@@ -174,7 +178,7 @@
         const labelTwo = document.querySelector("label:nth-child(2)");
         const play = document.querySelector(".play");
         const myRange = document.querySelector(".myRange");
-        const volume = document.querySelector("#volume");
+        const volume = document.querySelector(".volume");
         let mySrc = "WhatsAppVideo2023.mp4";
         video.src = "WhatsAppVideo2023.mp4";
 
@@ -246,6 +250,7 @@
         })
 
         function changeVolume() {
+            volume.value = 12;
             video.volume = volume.value / 100;
         }
 
