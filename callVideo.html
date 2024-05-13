@@ -58,6 +58,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            display: none;
         }
 
         .volume {
@@ -152,6 +153,17 @@
         .container:hover input[type="range"],
         .container:hover #volume {
             visibility: visible;
+            animation: animate .1s ease-in;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(-200px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
     </style>
 </head>
@@ -169,7 +181,7 @@
             </div>
         </div>
     </div>
-    <button class="show">Show video</button>
+    <button class="show hide">Show video</button>
     <script>
 
         const button = document.querySelector(".show");
@@ -179,16 +191,20 @@
         const play = document.querySelector(".play");
         const myRange = document.querySelector(".myRange");
         const volume = document.querySelector(".volume");
-        let mySrc = "WhatsAppVideo2023.mp4";
-        video.src = "WhatsAppVideo2023.mp4";
+        const container = document.querySelector(".container");
+        console.log(container)
+        let mySrc = "Learn CSS Position In 9 Minutes.mp4";
+        video.src = "Learn CSS Position In 9 Minutes.mp4";
 
         button.addEventListener("click", () => {
-            const aHref = document.createElement("a");
-            aHref.href = myHref;
-            aHref.play();
-            aHref.setAttribute("controls", "")
-            console.log(aHref)
-            video.src = mySrc;
+            // const aHref = document.createElement("a");
+            // aHref.href = myHref;
+            // aHref.play();
+            // aHref.setAttribute("controls", "")
+            // console.log(aHref)
+            // video.src = mySrc;
+            container.style.display = "flex";
+            button.style.display = "none";
         });
 
         video.addEventListener("mouseover", function (ev) {
@@ -249,8 +265,8 @@
             // console.log(ev.max.offsetX)
         })
 
+        volume.value = 12;
         function changeVolume() {
-            volume.value = 12;
             video.volume = volume.value / 100;
         }
 
