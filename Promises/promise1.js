@@ -21,3 +21,9 @@ function cleanKitchen() {
         console.log('You clean the kitchen');
     }, 2500);
 }
+
+function takeOutTrash() {
+    setTimeout(() => {
+        console.log('You take out the trash');
+    }, 500);
+}
