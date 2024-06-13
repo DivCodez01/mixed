@@ -50,7 +50,7 @@ function walkDog() {
             if (moveDog) {
                 resolve("you walk the dog 🐕");
             } else {
-                reject('You are not finish the work');
+                reject(new Error('You are not finish the work'));
             }
         }, 1500);
     })
@@ -93,4 +93,4 @@ cleanKitchen()
     .then(out2nd => { console.log(out2nd); return walkDog() })
     .then(out3rd => { console.log(out3rd); console.log('you finished the work!') })
     // .catch(error => console.log(error.name));
-    .catch(error => console.log(error));
+    .catch(error => console.log(error.message));
