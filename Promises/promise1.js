@@ -12,6 +12,12 @@
 
 function walkDog() {
     setTimeout(() => {
-        console.log("You walk the dog 🐕")
+        console.log("You walk the dog 🐕");
     }, 1500);
+}
+
+function cleanKitchen() {
+    setTimeout(() => {
+        console.log('You clean the kitchen');
+    }, 2500);
 }
