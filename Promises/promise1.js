@@ -10,31 +10,58 @@
 // 2. cLEAN THE KITCHEN
 // 3. TAKE OUT THE TRASH
 
-function walkDog(callback) {
-    setTimeout(() => {
-        console.log("You walk the dog 🐕");
-        callback()
-    }, 1500);
+// function walkDog(callback) {
+//     setTimeout(() => {
+//         console.log("You walk the dog 🐕");
+//         callback()
+//     }, 1500);
+// }
+
+// function cleanKitchen(callback) {
+//     setTimeout(() => {
+//         console.log('You clean the kitchen 🧽');
+//         callback()
+//     }, 2500);
+// }
+
+// function takeOutTrash(callback) {
+//     setTimeout(() => {
+//         console.log('You take out the trash ♻');
+//         callback()
+//     }, 500);
+// }
+
+// walkDog(() => {
+//     cleanKitchen(() => {
+//         takeOutTrash(() => {
+//             console.log('you finished the work!')
+//         })
+//     })
+// })
+
+function walkDog() {
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("You walk the dog 🐕");
+        }, 1500);
+    })
 }
 
 function cleanKitchen(callback) {
-    setTimeout(() => {
-        console.log('You clean the kitchen');
-        callback()
-    }, 2500);
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("You clean the kitchen 🧽");
+        }, 1500);
+    })
 }
 
 function takeOutTrash(callback) {
-    setTimeout(() => {
-        console.log('You take out the trash');
-        callback()
-    }, 500);
-}
 
-walkDog(() => {
-    cleanKitchen(() => {
-        takeOutTrash(() => {
-            console.log('you finished the work!')
-        })
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("You clean the kitchen ♻");
+        }, 1500);
     })
-})
+}
