@@ -17,3 +17,11 @@ Promise.race([
 ]).then((message) => {
     console.log(message)
 })
+
+Promise.all([
+    recoreVideoOne,
+    recoreVideoTwo,
+    recoreVideoThree
+]).then((messages) => {
+    console.log(messages)
+})
