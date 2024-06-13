@@ -9,3 +9,11 @@ const recoreVideoTwo = new Promise((resolve, reject) => {
 const recoreVideoThree = new Promise((resolve, reject) => {
     resolve('Video 3 Recorded')
 })
+
+Promise.race([
+    recoreVideoOne,
+    recoreVideoTwo,
+    recoreVideoThree
+]).then((message) => {
+    console.log(message)
+})
