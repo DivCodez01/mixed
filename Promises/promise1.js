@@ -48,9 +48,9 @@ function walkDog() {
         setTimeout(() => {
 
             if (moveDog) {
-                resolve("you walk the dog 🐕")
+                resolve("you walk the dog 🐕");
             } else {
-                reject('You are not finish the work')
+                reject('You are not finish the work');
             }
         }, 1500);
     })
@@ -59,8 +59,15 @@ function walkDog() {
 function cleanKitchen(callback) {
 
     return new Promise((resolve, reject) => {
+
+        const cleanYourKitchen = true;
+
         setTimeout(() => {
-            resolve("You clean the kitchen 🧽");
+            if (cleanYourKitchen) {
+                resolve("You clean the kitchen 🧽");
+            } else {
+                reject('You are not finished the work');
+            }
         }, 1500);
     })
 }
@@ -68,8 +75,15 @@ function cleanKitchen(callback) {
 function takeOutTrash(callback) {
 
     return new Promise((resolve, reject) => {
+
+        const takeYourTrash = false;
+
         setTimeout(() => {
-            resolve("You clean the kitchen ♻");
+            if (takeOutTrash) {
+                resolve("You take out the trash ♻");
+            } else {
+                reject('You are not finished the work');
+            }
         }, 1500);
     })
 }
@@ -77,4 +91,6 @@ function takeOutTrash(callback) {
 cleanKitchen()
     .then(out1st => { console.log(out1st); return takeOutTrash() })
     .then(out2nd => { console.log(out2nd); return walkDog() })
-    .then(out3rd => { console.log(out3rd); console.log('you finished the work!') });
+    .then(out3rd => { console.log(out3rd); console.log('you finished the work!') })
+    // .catch(error => console.log(error.name));
+    .catch(error => console.log(error));
