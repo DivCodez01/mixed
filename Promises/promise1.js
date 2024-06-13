@@ -9,3 +9,9 @@
 // 1. WALK THE DOG
 // 2. cLEAN THE KITCHEN
 // 3. TAKE OUT THE TRASH
+
+function walkDog() {
+    setTimeout(() => {
+        console.log("You walk the dog 🐕")
+    }, 1500);
+}
