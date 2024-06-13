@@ -8,3 +8,10 @@ function divide(a, b) {
         resolve(a / b);
     })
 }
+
+divide(10, 0).then(function (result) {
+    console.log(`Division Success: ${result}`);
+}).catch(function (error) {
+    console.log("There was an error with the division");
+    console.log(error);
+});
