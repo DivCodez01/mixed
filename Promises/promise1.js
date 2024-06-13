@@ -43,8 +43,15 @@ function walkDog() {
 
     return new Promise((resolve, reject) => {
 
+        const moveDog = false;
+
         setTimeout(() => {
-            resolve("You walk the dog 🐕");
+
+            if (moveDog) {
+                resolve("you walk the dog 🐕")
+            } else {
+                reject('You are not finish the work')
+            }
         }, 1500);
     })
 }
