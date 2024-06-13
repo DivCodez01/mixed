@@ -27,3 +27,11 @@ function takeOutTrash() {
         console.log('You take out the trash');
     }, 500);
 }
+
+walkDog(() => {
+    cleanKitchen(() => {
+        takeOutTrash(() => {
+
+        })
+    })
+})
