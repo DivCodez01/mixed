@@ -10,28 +10,31 @@
 // 2. cLEAN THE KITCHEN
 // 3. TAKE OUT THE TRASH
 
-function walkDog() {
+function walkDog(callback) {
     setTimeout(() => {
         console.log("You walk the dog 🐕");
+        callback()
     }, 1500);
 }
 
-function cleanKitchen() {
+function cleanKitchen(callback) {
     setTimeout(() => {
         console.log('You clean the kitchen');
+        callback()
     }, 2500);
 }
 
-function takeOutTrash() {
+function takeOutTrash(callback) {
     setTimeout(() => {
         console.log('You take out the trash');
+        callback()
     }, 500);
 }
 
 walkDog(() => {
     cleanKitchen(() => {
         takeOutTrash(() => {
-
+            console.log('you finished the work!')
         })
     })
 })
