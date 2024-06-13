@@ -42,6 +42,7 @@
 function walkDog() {
 
     return new Promise((resolve, reject) => {
+
         setTimeout(() => {
             resolve("You walk the dog 🐕");
         }, 1500);
@@ -68,4 +69,5 @@ function takeOutTrash(callback) {
 
 cleanKitchen()
     .then(out1st => { console.log(out1st); return takeOutTrash() })
-    .then(out2nd => { console.log(out2nd); return walkDog })
+    .then(out2nd => { console.log(out2nd); return walkDog() })
+    .then(out3rd => { console.log(out3rd); console.log('you finished the work!') });
