@@ -67,4 +67,5 @@ function takeOutTrash(callback) {
 }
 
 cleanKitchen()
-    .then(data => console.log(data))
+    .then(out1st => { console.log(out1st); return takeOutTrash() })
+    .then(out2nd => { console.log(out2nd); return walkDog })
