@@ -10,3 +10,9 @@ function wait(ms) {
         }, ms);
     })
 }
+
+wait(1000).then(function () {
+    console.log("we have waited 1 second!");
+}).catch(function (error) {
+    console.log(`There was an error: ${error.message}`);
+})
