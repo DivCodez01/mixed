@@ -65,3 +65,6 @@ function takeOutTrash(callback) {
         }, 1500);
     })
 }
+
+cleanKitchen()
+    .then(data => console.log(data))
